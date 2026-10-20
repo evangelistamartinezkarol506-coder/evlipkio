@@ -1,34 +1,17 @@
-import { useState } from 'react';
-import FeedComposer from '../components/FeedComposer';
-import PostCard from '../components/PostCard';
-import { initialPosts, type Post } from '../App';
+import { Link } from 'react-router-dom';
 
-function HomePage() {
-  const [posts, setPosts] = useState<Post[]>(initialPosts);
-
-  const handleNewPost = (text: string) => {
-    const newPost: Post = {
-      id: Date.now(),
-      author: 'Tú',
-      handle: '@tuperfil',
-      time: 'Ahora mismo',
-      text,
-      accent: 'neutral',
-    };
-
-    setPosts((current) => [newPost, ...current]);
-  };
-
+function ExplorePage() {
   return (
-    <>
-      <FeedComposer onSubmit={handleNewPost} />
-      <div className="feed">
-        {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
-      </div>
-    </>
+    <section className="empty-state panel">
+      <p className="eyebrow">Explorar</p>
+      <h1>Descubre ideas y comunidades</h1>
+      <p>
+        Esta sección está diseñada para mostrar contenido recomendado, búsquedas destacadas y tendencias futuras.
+      </p>
+      <p className="muted">Todavía no hay integración con fuentes de datos reales en esta fase.</p>
+      <Link to="/" className="primary-button inline-button">Continuar en Inicio</Link>
+    </section>
   );
 }
 
-export default HomePage;
+export default ExplorePage;

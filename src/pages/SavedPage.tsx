@@ -1,12 +1,15 @@
-function MessagesPage() {
+import { Link } from 'react-router-dom';
+
+function SavedPage() {
   return (
     <section className="empty-state panel">
-      <p className="eyebrow">Mensajes</p>
-      <h1>Tu centro de conversación</h1>
-      <p>La vista de mensajes se prepara para conversaciones, chats y notificaciones de comunidad.</p>
-      <p className="muted">Esta sección aún no está conectada a mensajes en tiempo real.</p>
+      <p className="eyebrow">Guardados</p>
+      <h1>Contenido que quieres volver a ver</h1>
+      <p>Se mostrará un resumen de publicaciones, artículos y recursos guardados por el usuario.</p>
+      <p className="muted">Todavía no se persisten elementos guardados en esta fase.</p>
+      <Link to="/" className="primary-button inline-button">Volver al inicio</Link>
     </section>
   );
 }
 
-export default MessagesPage;
+export default SavedPage;

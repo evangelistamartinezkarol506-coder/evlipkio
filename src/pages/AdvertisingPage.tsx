@@ -1,12 +1,15 @@
-function SeriesPage() {
+import { Link } from 'react-router-dom';
+
+function AdvertisingPage() {
   return (
     <section className="empty-state panel">
-      <p className="eyebrow">EvliPkio Series y Películas</p>
-      <h1>Catalogación visual y recomendaciones</h1>
-      <p>Este espacio está preparado para mostrar colecciones, listas y sugerencias de contenido audiovisual.</p>
-      <p className="muted">Aquí aún no se conecta una base de datos ni una biblioteca real.</p>
+      <p className="eyebrow">Publicidad para empresas</p>
+      <h1>Soluciones para marcas y organizaciones</h1>
+      <p>En esta vista se mostrarán modelos de anuncios, campañas y herramientas de promoción.</p>
+      <p className="muted">No se está ejecutando ninguna campaña real ni pasarela de pago.</p>
+      <Link to="/" className="primary-button inline-button">Volver al inicio</Link>
     </section>
   );
 }
 
-export default SeriesPage;
+export default AdvertisingPage;

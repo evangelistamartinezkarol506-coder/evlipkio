@@ -1,12 +1,14 @@
-function TermsPage() {
+import { Link } from 'react-router-dom';
+
+function NotFoundPage() {
   return (
     <section className="empty-state panel">
-      <p className="eyebrow">Términos</p>
-      <h1>Política y condiciones</h1>
-      <p>Este espacio está pensado para mostrar avisos legales, condiciones y normativa de uso.</p>
-      <p className="muted">La versión final será revisada con contenido legal formal en una etapa posterior.</p>
+      <p className="eyebrow">404</p>
+      <h1>Página no encontrada</h1>
+      <p>La ruta que buscas no existe dentro de la primera versión visual de EvliPkio.</p>
+      <Link to="/" className="primary-button inline-button">Volver al inicio</Link>
     </section>
   );
 }
 
-export default TermsPage;
+export default NotFoundPage;

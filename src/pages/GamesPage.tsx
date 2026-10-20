@@ -1,12 +1,15 @@
-function ProfilePage() {
+import { Link } from 'react-router-dom';
+
+function GamesPage() {
   return (
     <section className="empty-state panel">
-      <p className="eyebrow">Mi perfil</p>
-      <h1>Personaliza tu espacio</h1>
-      <p>En este panel se mostrarán tu biografía, publicaciones destacadas y ajustes del perfil.</p>
-      <p className="muted">La autenticación y gestión real de perfiles se implementará en una fase posterior.</p>
+      <p className="eyebrow">Juegos</p>
+      <h1>Una zona de entretenimiento</h1>
+      <p>Próximamente se integrarán experiencias recreativas, retos o contenido interactivo.</p>
+      <p className="muted">Esta sección sigue siendo un placeholder visual para la estructura del producto.</p>
+      <Link to="/" className="primary-button inline-button">Volver al inicio</Link>
     </section>
   );
 }
 
-export default ProfilePage;
+export default GamesPage;

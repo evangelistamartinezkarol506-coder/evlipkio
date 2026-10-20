@@ -1,12 +1,15 @@
-function AdvertisingPage() {
+import { Link } from 'react-router-dom';
+
+function AdministrationPage() {
   return (
     <section className="empty-state panel">
-      <p className="eyebrow">Publicidad para empresas</p>
-      <h1>Soluciones para marcas y organizaciones</h1>
-      <p>En esta vista se mostrarán modelos de anuncios, campañas y herramientas de promoción.</p>
-      <p className="muted">No se está ejecutando ninguna campaña real ni pasarela de pago.</p>
+      <p className="eyebrow">Administración</p>
+      <h1>Panel de gestión del producto</h1>
+      <p>Se preparan vistas para configuración, moderación y supervisión operativa de la plataforma.</p>
+      <p className="muted">Las herramientas de administración reales se integrarán más adelante.</p>
+      <Link to="/" className="primary-button inline-button">Volver al inicio</Link>
     </section>
   );
 }
 
-export default AdvertisingPage;
+export default AdministrationPage;

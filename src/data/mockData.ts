@@ -59,11 +59,3 @@ export const initialPosts: Post[] = [
     accent: 'sand',
   },
 ];
-
-export const suggestions = [
-  'Filosofía del diseño',
-  'Innovación en UX',
-  'Contenido visual',
-  'Comunidades digitales',
-  'Diseño editorial',
-];

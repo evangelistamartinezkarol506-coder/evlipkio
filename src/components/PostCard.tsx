@@ -1,61 +1,57 @@
-import { useState } from 'react';
-import { ImagePlus, Send } from 'lucide-react';
+import { Bookmark, Heart, MessageCircle, MoreHorizontal } from 'lucide-react';
+import type { Post } from '../data/mockData';
 
-type FeedComposerProps = {
-  onSubmit: (text: string) => void;
+type PostCardProps = {
+  post: Post;
 };
 
-function FeedComposer({ onSubmit }: FeedComposerProps) {
-  const [text, setText] = useState('');
-  const [error, setError] = useState('');
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (!text.trim()) {
-      setError('Escribe algo antes de publicar.');
-      return;
-    }
-
-    onSubmit(text.trim());
-    setText('');
-    setError('');
-  };
-
+function PostCard({ post }: PostCardProps) {
   return (
-    <section className="composer panel">
-      <div className="composer__header">
-        <div className="avatar avatar--small avatar--dark">E</div>
-        <div>
-          <strong>EvliPkio</strong>
-          <p>Comparte una idea</p>
+    <article className="post-card panel" aria-label={`Publicación de ${post.author}`}>
+      <div className="post-card__header">
+        <div className="post-card__user">
+          <div className={`avatar ${post.accent ? `avatar--${post.accent}` : 'avatar--neutral'}`}>
+            {post.author.charAt(0)}
+          </div>
+
+          <div>
+            <div className="post-card__name-row">
+              <strong>{post.author}</strong>
+              <span>{post.handle}</span>
+            </div>
+            <time>{post.time}</time>
+          </div>
         </div>
+
+        <button type="button" className="icon-button" aria-label="Más opciones">
+          <MoreHorizontal size={18} />
+        </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="composer__form">
-        <textarea
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          placeholder="¿Qué quieres compartir hoy?"
-          rows={4}
-          aria-label="Escribe una publicación"
-        />
+      <p className="post-card__text">{post.text}</p>
 
-        {error ? <p className="form-error">{error}</p> : null}
-
-        <div className="composer__actions">
-          <button type="button" className="secondary-button" aria-label="Añadir imagen">
-            <ImagePlus size={17} />
-            <span>Imagen</span>
-          </button>
-          <button type="submit" className="primary-button">
-            <Send size={17} />
-            <span>Publicar</span>
-          </button>
+      {post.image ? (
+        <div className="post-card__media">
+          <img src={post.image} alt="Contenido visual de la publicación" />
         </div>
-      </form>
-    </section>
+      ) : null}
+
+      <div className="post-card__actions">
+        <button type="button" className="action-button">
+          <Heart size={17} />
+          <span>Me gusta</span>
+        </button>
+        <button type="button" className="action-button">
+          <MessageCircle size={17} />
+          <span>Comentar</span>
+        </button>
+        <button type="button" className="action-button">
+          <Bookmark size={17} />
+          <span>Guardar</span>
+        </button>
+      </div>
+    </article>
   );
 }
 
-export default FeedComposer;
+export default PostCard;
